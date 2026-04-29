@@ -1,0 +1,17 @@
+{
+	"name": "CTD_AB_fix",
+	"title": "CyberTheDrot's Angel's & Bob's mod fix",
+	"description": "Making minor adjustments to the Angel's & Bob's mod build. \n\nВнесение мелких правок в сборку модов Angel's & Bob's.",
+	"author": "GreyKain",
+	"version": "2026.04.27",
+	"factorio_version": "2.0",
+	"dependencies": [
+		"base >= 2.0.76",
+		"elevated-rails",
+		"quality",
+		"space-age",
+		"CTDlibrary",
+		"? Smart_Inserters",
+		"? boblogistics"
+		]
+}
