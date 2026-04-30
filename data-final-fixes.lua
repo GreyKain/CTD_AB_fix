@@ -1,7 +1,8 @@
 -- ##############################################################################################
-local item = data.raw.item
-local recipe = data.raw.recipe
-local gun = data.raw.gun
+local item = data.raw["item"]
+local recipe = data.raw["recipe"]
+local tech = data.raw["technology"]
+local gun = data.raw["gun"]
 local tech_disable = CTDmod.lib.tech.disable
 local replace_ingredient = CTDmod.lib.recipe.replace_ingredient
 local add_tech_unlock = CTDmod.lib.recipe.add_tech_unlock
@@ -13,7 +14,9 @@ local duplicate = CTDmod.lib.recipe.duplicate
 -- ОТКЛЮЧЕНИЕ ТЕХНОЛОГИИ ДЛИННЫХ МАНИПУЛЯТОРОВ ОТ БОБА ПРИ ВКЛЮЧЕННОМ МОДЕ SMART INSERTERS
 -- ----------------------------------------------------------------------------------------------
 if mods ["boblogistics"] and mods ["Smart_Inserters"] then
-    tech_disable("bob-long-inserters-1")
+    if tech["bob-long-inserters-1"] then
+        tech_disable("bob-long-inserters-1")
+    end
 end
 -- ----------------------------------------------------------------------------------------------
 
@@ -86,7 +89,9 @@ end
 -- УБИРАЕМ РЕЦЕПТ БАЗОВОГО КОНВЕЕРА ПОД ТЕХНОЛОГИЮ
 -- ----------------------------------------------------------------------------------------------
 if mods ["boblogistics"] then
-	data.raw.recipe["bob-basic-transport-belt"].enabled = false
-	add_tech_unlock("bob-basic-transport-belt", "logistics-0")
+    if recipe["bob-basic-transport-belt"] and tech["logistics-0"] then
+        recipe["bob-basic-transport-belt"].enabled = false
+        add_tech_unlock("bob-basic-transport-belt", "logistics-0")
+    end
 end
 -- ----------------------------------------------------------------------------------------------
